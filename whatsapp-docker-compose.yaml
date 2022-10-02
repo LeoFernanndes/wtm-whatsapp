@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  database:
+    image: postgres
+    restart: always
+    container_name: "local-whatsapp-database"
+    environment:
+      - POSTGRES_DB=whatsapp
+      - POSTGRES_USER=username
+      - POSTGRES_PASSWORD=password123
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./database:/var/lib/postgresql/data
+      - ./database_dumps/:/database_dumps
